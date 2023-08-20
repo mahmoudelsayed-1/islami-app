@@ -1,10 +1,13 @@
 package com.example.islami_app.home.quran
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.islami_app.Constants
+import com.example.islami_app.chapterDetails.SuraDetailsActivity
 import com.example.islami_app.databinding.FragmentQuranBinding
 
 class QuranFragment : Fragment() {
@@ -143,9 +146,17 @@ class QuranFragment : Fragment() {
         //super.onViewCreated(view, savedInstanceState)
         adapter = QuranRecyclerAdapter(names)
         adapter.OnItem = QuranRecyclerAdapter.OnItemClick { position, name ->
-
+            startSuraDetailsScreen(position, name)
         }
         viewBindig.recycler.adapter = adapter
+
+    }
+
+    private fun startSuraDetailsScreen(position: Int, name: String) {
+        val intent = Intent(context, SuraDetailsActivity::class.java)
+        intent.putExtra(Constants.EXTRA_SURA_INDEX, position + 1)
+        intent.putExtra(Constants.EXTRA_SURA_NAME, name)
+        startActivity(intent)
 
     }
 

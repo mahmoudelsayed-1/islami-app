@@ -30,10 +30,6 @@ class QuranRecyclerAdapter(private val names: List<String>) :
 
     var OnItem: OnItemClick? = null
 
-    fun setOnItem(OnItem: OnItemClick) {
-        this.OnItem = OnItem
-
-    }
 
     fun interface OnItemClick {
         fun onClick(position: Int, name: String)

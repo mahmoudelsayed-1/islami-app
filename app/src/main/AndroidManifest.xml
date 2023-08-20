@@ -28,6 +28,11 @@
             android:exported="false">
 
         </activity>
+        <activity
+            android:name=".chapterDetails.SuraDetailsActivity"
+            android:exported="false">
+
+        </activity>
 
     </application>
 
